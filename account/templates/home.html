@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+로그인됨 <br>
+    <a href="{% url 'logout' %}">로그아웃</a><br>
+{% else %}
+안됨 <br>
+    <a href="{% url 'login' %}">로그인</a><br>
+{% endif %}
+<a href="{% url 'signup' %}">회원가입</a><br>
+</body>
+</html>
