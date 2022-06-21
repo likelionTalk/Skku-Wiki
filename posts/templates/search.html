@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>검색폼 </h1>
+
+    <!-- vies.postList로 전송 -->
+    <form id="searchForm" method="POST" action="{% url 'postList' %}">
+        {% csrf_token %}        
+        <input type="search" name="keyword">
+        <button type="submit"> Search </button>
+    </form>
+
+
+    <script type='text/javascript'>
+        $(document).ready(function(){              
+            $("#btn_search").on('click', function() {
+                $("#keyword").val($("#keyword").val());
+                $("#searchForm").submit();
+            });
+        });
+    </script>
+
+</body>
+</html>
