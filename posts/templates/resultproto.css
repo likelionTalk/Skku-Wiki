@@ -41,8 +41,26 @@
     padding-bottom: 15px;
 }
 
+.resultName img {
+    width: 28px;
+    height: 28px;
+    margin: 0px 8px 8px 0px;
+}
+
+.resultName a {
+    text-decoration:none;
+    color: inherit; 
+    
+}
+
+.resultName a:hover {
+    color: rgb(99, 99, 99);
+    transition: 0.3s;
+}
+
 .resultSummary {
     padding: 5px 5px 10px 0px;
     font-weight: lighter;
+
 
 }

@@ -46,8 +46,8 @@
       <div class="resultBox">
         {% for post in postList %}
           <div class="boxContainer">
-            <div class="resultName">
-              <a href={% url 'detail' post.id %}>타이틀: {{ post.title }}</a><br/>
+            <div class="resultName" title="이동하기">
+              <a href={% url 'detail' post.id %}><img src="images\file.png">타이틀: {{ post.title }}</a><br/>
             </div>
             <div class="resultSummary">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat convallis volutpat ac accumsan tortor. Eu mattis turpis aliquet amet. Sit posuere eu nullam dignissim proin dignissim enim, purus phasellus. Sit tellus vulputate vitae feugiat quis.
