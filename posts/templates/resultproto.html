@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="resultproto.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+
+    <title>Title</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="home.html">성균위키</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled"></a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+    <div class="result">
+      <p class="resultTitle">검색 결과</p>
+      <div class="resultSub">
+        <div class="resultSub1"><span class="keyword">"{{ kw }}"</span></div>
+        <div class="resultSub2">총 <span class="length">{{length}}</span>건의 검색 결과</p></div>
+      </div>
+      <!--length = len() 검색 결과 몇개인지 받는 함수 -->
+      <div class="resultBox">
+        {% for post in postList %}
+          <div class="boxContainer">
+            <div class="resultName">
+              <a href={% url 'detail' post.id %}>타이틀: {{ post.title }}</a><br/>
+            </div>
+            <div class="resultSummary">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat convallis volutpat ac accumsan tortor. Eu mattis turpis aliquet amet. Sit posuere eu nullam dignissim proin dignissim enim, purus phasellus. Sit tellus vulputate vitae feugiat quis.
+Convallis sit tincidunt amet aliquet mattis elementum nec nibh. Dictumst tortor, semper urna, id justo. Risus nibh nisi, nisi, senectus aliquam nulla eu dui. In fusce proin aliquam diam suspendisse vel. Libero, id nunc velit, pellentesque. Sed tincidunt cras proin volutpat. Mauris congue venenatis, luctus accumsan nisl, natoque adipiscing neque, luctus. Tincidunt id ut fermentum vehicula nunc.
+
+              {{ post.summary }} <!-- detail 내용 200자 정도로 summary해서 나타내주는 함수 만들어야할듯 -->
+            </div>
+          </div>
+          
+        
+        {% endfor %}
+      </div>
+    </div>
+
+</body>
+</html>
