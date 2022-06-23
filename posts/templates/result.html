@@ -2,17 +2,65 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="result.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+
+    <title>Title</title>
 </head>
 <body>
-    <h1>검색 결과 목록</h1> 
-    <p>검색키워드: {{ kw }}</p>
 
-    {% for post in postList %}
-    <a href={% url 'detail' post.id %}>타이틀: {{ post.title }}</a><br/>
-    {% endfor %}
-    
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="home.html">성균위키</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled"></a>
+              </li>
+            </ul>
+
+            <!-- views.postList로 전송 -->
+            <form method="POST" action="{% url 'posts:postList' %}" class="" role="search">
+              {% csrf_token %}    
+              <input name="kw" class="" type="search" placeholder="Search" aria-label="Search">
+              <button class="" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+    <div class="result">
+      <p class="resultTitle">검색 결과</p>
+      <div class="resultSub">
+        <div class="resultSub1"><span class="keyword">"{{ kw }}"</span></div>
+        <div class="resultSub2">총 <span class="length">{{length}}</span>건의 검색 결과</p></div>
+      </div>
+      <!--length = len() 검색 결과 몇개인지 받는 함수 -->
+      <div class="resultBox">
+        {% for post in postList %}
+          <div class="boxContainer">
+            <div class="resultName" title="이동하기">
+              <a href={% url 'posts:detail' post.id %}><img src="images\file.png">타이틀: {{ post.title }}</a><br/>
+            </div>
+            <div class="resultSummary">
+              <p>요약: {{ post.summary }}</p> <!-- detail 내용 200자 정도로 summary해서 나타내주는 함수 만들어야할듯 -->  
+        {% endfor %}
+            
+              
+            </div>
+          </div>
+      </div>
+    </div>
+
 </body>
 </html>
