@@ -1,6 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
 <form action="" method="post">
     {% csrf_token %}
     신고<br> 글 title : {{ post.title }} <br>
     <textarea name="report_body"></textarea><br>
     <input type="submit" value="신고"><br>
 </form>
+
+{% endblock %}

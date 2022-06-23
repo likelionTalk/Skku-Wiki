@@ -2,11 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from .models import User
 
-
-def home(request):
-    return render(request, 'home.html')
-
-
 def login(request):
     if request.method == 'POST':
         password_ = request.POST['password']
