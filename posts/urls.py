@@ -7,4 +7,5 @@ urlpatterns = [
     
     path('', posts_views.postList, name='postList'), # posts/: 검색 결과 목록 -> views.postList
     path('<int:postId>/', posts_views.detail, name='detail'), # posts/{postId}: 상세 페이지 -> views.detail
+    path('<int:postId>/report', posts_views.report, name='report'), # posts/{postId}: 상세 페이지 -> views.detail
 ]
