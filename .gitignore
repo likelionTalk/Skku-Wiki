@@ -1,1 +1,5 @@
 secret.json
+skkuwiki.iml
+db.sqlite3
+.idea
+*.pyc
