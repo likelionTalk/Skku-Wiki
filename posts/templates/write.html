@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>글 작성하기</h1>
+
+<!-- 글 작성 폼 -->
+<form method="POST" action="{% url 'posts:write' %}" class="" role="write">
+    {% csrf_token %}    
+    <input name="title" class="" type="text" placeholder="write the title" aria-label="write the title">
+    <textarea name="body" placeholder="write the body"></textarea><br>
+    <input type="submit" value="작성"><br>
+</form>
+
+{% endblock %}

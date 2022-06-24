@@ -3,10 +3,12 @@ from account.models import User
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=200)
+    user_id = models.ForeignKey("account.User", on_delete=models.CASCADE, db_column='user_id')
+    title = models.CharField(max_length=500)
     body = models.TextField()
-    summary = models.CharField(max_length=200, default="")
+    summary = models.CharField(max_length=200, blank=True)
     date = models.DateTimeField(auto_now_add=True)
+    like = models.IntegerField(default=0)
 
 
 class Report(models.Model):
