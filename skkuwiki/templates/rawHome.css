@@ -1,0 +1,44 @@
+*{
+    margin:0;
+    padding:0;
+}
+/*
+.button{
+    position:absolute;
+    text-align:center;
+    top:240px;
+    left:590px;
+    font-size:40pt;
+    max-width: 1082px;   
+}*/
+
+.button {
+    text-align: center;
+    padding-top: 13%;
+    font-size:45pt;
+    font-weight:bold;
+}
+
+.button:hover{
+    background-image:url(fall3.jpg);
+    -webkit-background-size: cover;
+    background-size:cover;
+    transition-duration:0.9s;
+    transition: all is ease-in-out;
+    font-size:60pt;
+    font-weight:bold;
+    text-shadow: 9px 9px 9px grey;
+    height:100vh;
+
+}
+
+.form-control:focus {
+    box-shadow:3%;
+  }
+
+  .container{
+    position:absolute;
+    left: 500px;
+    top:390px;
+    width:585px;
+}
