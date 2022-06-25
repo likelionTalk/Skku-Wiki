@@ -9,8 +9,10 @@
 
     <!-- css 추가 -->
     <link rel="stylesheet" href="{% static 'css/result.css' %}">
+    <link rel="stylesheet" href="{% static 'css/report.css' %}">
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     
     <!-- jquery 사용 -->
@@ -43,7 +45,7 @@
             <form method="POST" action="{% url 'posts:postList' %}" class="" role="search">
               {% csrf_token %}    
               <input name="kw" class="" type="search" placeholder="Search" aria-label="Search">
-              <button class="" type="submit">Search</button>
+              <button class="" id="searchBtn" type="submit">Search</button>
             </form>
           </div>
         </div>
