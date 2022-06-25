@@ -1,3 +1,4 @@
+from pyexpat.errors import messages
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Post, Report
 
@@ -35,3 +36,29 @@ def report(request, postId):
     else:
         post = get_object_or_404(Post, id=postId)
         return render(request, 'report.html', {'post': post})
+
+def write(request):
+    if request.method == "GET":
+        return render(request, 'write.html')
+    elif request.method == "POST":
+        newPost = Post.objects.create(user_id=request.user, title=request.POST['title'], body=request.POST['body'])
+        return redirect("/posts/" + str(newPost.id))
+
+def edit(request, postId):
+    if request.method == "GET":
+        postDetail = get_object_or_404(Post, pk=postId)
+        context = {'postDetail': postDetail}
+        return render(request, 'edit.html', context)
+    elif request.method == "POST":
+        Post.objects.filter(id = postId).update(title = request.POST['title'])
+        Post.objects.filter(id = postId).update(body=request.POST['body'])
+        editPost = get_object_or_404(Post, id=postId) 
+        return redirect("/posts/" + str(editPost.id))
+
+def delete(request, postId):
+    deletePost = get_object_or_404(Post, id=postId)
+    # if request.user != deletePost.user_id:
+    #     messages.error(request, '삭제권한이 없습니다')
+    #     return redirect("/posts/" + str(deletePost.id))    
+    deletePost.delete()
+    return redirect("/")
