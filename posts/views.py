@@ -1,24 +1,22 @@
-from pyexpat.errors import messages
 from django.shortcuts import get_object_or_404, render, redirect
+from .models import Post, Report
+from django.shortcuts import get_object_or_404, render, redirect
+
 from .models import Post, Report
 
 
-def home(request):
-    return render(request, 'home.html')
-
-
 def postList(request):
-    kw = request.POST['kw'] # 검색어
-    postList = Post.objects.filter(title__contains=kw) # 타이틀만 검색함
+    kw = request.POST['kw']  # 검색어
+    postList = Post.objects.filter(title__contains=kw)  # 타이틀만 검색함
     # 검색 결과 1개만 존재
     if len(postList) == 1:
         return redirect("posts:detail", str(postList[0].id))
-    
+
     # 검색 결과 다수 존재
     else:
         for post in postList:
             post.summary = post.body[:len(post.body)] if len(post.body) < 200 else post.body[:200]
-        context = {'kw':kw, "length": len(postList), 'postList':postList}
+        context = {'kw': kw, "length": len(postList), 'postList': postList}
         return render(request, 'result.html', context)
 
 
@@ -37,6 +35,7 @@ def report(request, postId):
         post = get_object_or_404(Post, id=postId)
         return render(request, 'report.html', {'post': post})
 
+
 def write(request):
     if request.method == "GET":
         return render(request, 'write.html')
@@ -44,16 +43,18 @@ def write(request):
         newPost = Post.objects.create(user_id=request.user, title=request.POST['title'], body=request.POST['body'])
         return redirect("/posts/" + str(newPost.id))
 
+
 def edit(request, postId):
     if request.method == "GET":
         postDetail = get_object_or_404(Post, pk=postId)
         context = {'postDetail': postDetail}
         return render(request, 'edit.html', context)
     elif request.method == "POST":
-        Post.objects.filter(id = postId).update(title = request.POST['title'])
-        Post.objects.filter(id = postId).update(body=request.POST['body'])
-        editPost = get_object_or_404(Post, id=postId) 
+        Post.objects.filter(id=postId).update(title=request.POST['title'])
+        Post.objects.filter(id=postId).update(body=request.POST['body'])
+        editPost = get_object_or_404(Post, id=postId)
         return redirect("/posts/" + str(editPost.id))
+
 
 def delete(request, postId):
     deletePost = get_object_or_404(Post, id=postId)
