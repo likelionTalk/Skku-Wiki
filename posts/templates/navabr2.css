@@ -1,0 +1,12 @@
+.container{
+    position:absolute;
+    left: 500px;
+    top:5px;
+    width:585px;
+}
+
+.logo{
+    position:absolute;
+    left:400px;
+    top:10px;
+}

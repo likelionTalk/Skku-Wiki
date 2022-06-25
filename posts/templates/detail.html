@@ -4,6 +4,6 @@
 <h1>상세 페이지</h1>
 <p>id: {{ postDetail.id }}</p>
 <p>title: {{ postDetail.title }}</p>
-<a href="{% url 'report' postDetail.id %}">신고버튼</a>
+<a href="{% url 'posts:report' postDetail.id %}">신고버튼</a>
 
 {% endblock %}
