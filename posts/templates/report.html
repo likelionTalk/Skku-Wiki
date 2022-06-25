@@ -3,9 +3,21 @@
 
 <form action="" method="post">
     {% csrf_token %}
-    신고<br> 글 title : {{ post.title }} <br>
-    <textarea name="report_body"></textarea><br>
-    <input type="submit" value="신고"><br>
+    <div class="reportBox">
+        <div class="reportContainer">
+            <div class="reportTitle">신고하기</div>
+            <div class="selectedPost">선택한 글: {{ post.title }}</div>
+        </div>
+        <textarea name="report_body" class="reportBody" placeholder="신고 사유를 입력해주세요." id="reportBody"></textarea><br>
+        <input type="submit" value="제출하기" class="submitBtn" id="submitBtn"><br>
+    </div>
 </form>
+<script>
+    document.getElementById("reportBody").style.fontSize = '17px';
+    document.getElementById("submitBtn").addEventListener("click", function(){
+        alert('제출이 완료되었습니다.');
+        history.back;
+    })
+</script>
 
 {% endblock %}
