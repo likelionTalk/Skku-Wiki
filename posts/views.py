@@ -17,13 +17,13 @@ def postList(request):
         for post in postList:
             post.summary = post.body[:len(post.body)] if len(post.body) < 200 else post.body[:200]
         context = {'kw': kw, "length": len(postList), 'postList': postList}
-        return render(request, 'result.html', context)
+        return render(request, 'search-result-demo.html', context)
 
 
 def detail(request, postId):
     postDetail = get_object_or_404(Post, pk=postId)
     context = {'postDetail': postDetail}
-    return render(request, 'detail.html', context)
+    return render(request, 'post-detail-demo.html', context)
 
 
 def report(request, postId):
@@ -33,12 +33,12 @@ def report(request, postId):
         return redirect("/posts/" + str(postId))
     else:
         post = get_object_or_404(Post, id=postId)
-        return render(request, 'report.html', {'post': post})
+        return render(request, 'post-report.html', {'post': post})
 
 
 def write(request):
     if request.method == "GET":
-        return render(request, 'write.html')
+        return render(request, 'post-new-demo.html')
     elif request.method == "POST":
         newPost = Post.objects.create(user_id=request.user, title=request.POST['title'], body=request.POST['body'])
         return redirect("/posts/" + str(newPost.id))
@@ -48,7 +48,7 @@ def edit(request, postId):
     if request.method == "GET":
         postDetail = get_object_or_404(Post, pk=postId)
         context = {'postDetail': postDetail}
-        return render(request, 'edit.html', context)
+        return render(request, 'post-edit-demo.html', context)
     elif request.method == "POST":
         Post.objects.filter(id=postId).update(title=request.POST['title'])
         Post.objects.filter(id=postId).update(body=request.POST['body'])

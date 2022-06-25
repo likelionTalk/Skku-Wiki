@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from .models import User
 
+
 def login(request):
     if request.method == 'POST':
         password_ = request.POST['password']
@@ -20,10 +21,7 @@ def logout(request):
 
 def signup(request):
     if request.method == 'POST':
-        User.objects.create_user(username=request.POST['username'], password=request.POST['password'], studentId=request.POST['studentId'])
-        return redirect('profile')
+        User.objects.create_user(username=request.POST['username'], password=request.POST['password'],
+                                 studentId=request.POST['studentId'])
+        return redirect('login')
     return render(request, 'signup.html')
-
-
-def profile(request):
-    return render(request, 'profile.html')
