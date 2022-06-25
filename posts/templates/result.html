@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<!-- 이는 로그인한 회원들에게만 보이면 좋다-->
+<a href="{% url 'posts:write' %}">글 새로 작성</a><br/> 
+
+
 <div class="result">
   <p class="resultTitle">검색 결과</p>
   <div class="resultSub">
@@ -11,7 +15,7 @@
      {% for post in postList %}
      <div class="boxContainer">
         <div class="resultName" title="이동하기">
-           <a href={% url 'posts:detail' post.id %}><img src={% static 'img/file.png' %}>타이틀: {{ post.title }}</a><br/>
+         <a href={% url 'posts:detail' post.id %}><img src={% static 'img/file.png' %}>타이틀: {{ post.title }}</a><br/>
         </div>
         <div class="resultSummary">
            <p>요약: {{ post.summary }}</p>          

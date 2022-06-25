@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>글 수정하기</h1>
+
+<!-- 글 수정 폼 -->
+<form method="POST" action="{% url 'posts:edit' postDetail.id %}" class="" role="write">
+    {% csrf_token %}  
+
+    <textarea name="title" class="" laceholder="write the title"> 
+        {{ postDetail.title }}
+    </textarea><br>
+
+    <textarea name="body" class="" placeholder="write the body">
+         {{ postDetail.body }} 
+    </textarea><br>
+    <input type="submit" value="작성"><br>
+</form>
+
+{% endblock %}

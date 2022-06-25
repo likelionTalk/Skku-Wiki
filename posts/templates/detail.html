@@ -2,8 +2,29 @@
 {% block content %}
 
 <h1>상세 페이지</h1>
-<p>id: {{ postDetail.id }}</p>
+<h1>글쓴이: {{ postDetail.user_id }} </h1>
 <p>title: {{ postDetail.title }}</p>
-<a href="{% url 'posts:report' postDetail.id %}">신고버튼</a>
+<p>내용: <br/> {{ postDetail.body }}</p>
+
+<!-- 이 둘은 글 작성자에게만 보여야 한다-->
+<a href="{% url 'posts:edit' postDetail.id %}">수정</a><br/> 
+    <!-- 삭제를 실행할 URL: data-uri, jquery 사용-->
+<a href="javascript:void(0)" class="delete" data-uri="{% url 'posts:delete' postDetail.id %}">삭제</a><br/> 
+
+<!-- 이는 로그인 한 회원에게만 보여야 한다-->
+<a href="{% url 'posts:report' postDetail.id %}">신고</a>
+{% endblock %}
+
+{% block script %}
+<script type='text/javascript'>
+    const deletePost = document.getElementsByClassName("delete");
+    Array.from(deletePost).forEach(function(post) {
+        post.addEventListener('click', function() {
+            if(confirm("정말로 삭제하시겠습니까?")) {
+                location.href = this.dataset.uri;
+            };
+        });
+    });
+</script>
 
 {% endblock %}
