@@ -3,6 +3,7 @@ from .models import Post, Report
 from django.shortcuts import get_object_or_404, render, redirect
 
 from .models import Post, Report
+from account.models import User
 
 
 def postList(request):
