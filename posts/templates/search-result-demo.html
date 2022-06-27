@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-  <link rel="stylesheet" href="{% static 'css/search-result.css' %}">
+  <link rel="stylesheet" href="{% static 'css/post-detail.css' %}">
 {% endblock %}
 
 {% block content_side %}
@@ -10,7 +10,12 @@
 <a href="{% url 'posts:write' %}">글 새로 작성</a><br/> 
 
 <div class="result">
-  <p class="resultTitle">검색 결과</p>
+   <div class="noResultBox">
+      <p class="resultTitle">검색 결과</p>
+      {% if request.user.is_authenticated %}
+      <div class="newPost" id="newPost"><a href="{% url 'posts:write' %}">[ 새 문서 만들기 ]</a></div>
+      {%endif%}
+   </div>
   <div class="resultSub">
      <div class="resultSub1"><span class="keyword">"{{ kw }}"</span></div>
      <div class="resultSub2">총 <span class="length">{{length}}</span>건의 검색 결과</p></div>
@@ -19,15 +24,27 @@
      {% for post in postList %}
      <div class="boxContainer">
         <div class="resultName" title="이동하기">
-         <a href={% url 'posts:detail' post.id %}><img src={% static 'img/file.png' %}>타이틀: {{ post.title }}</a><br/>
+         <a href={% url 'posts:detail' post.id %}><img src={% static 'img/file.png' %} class="fileImg">{{ post.title }}</a><br/>
         </div>
         <div class="resultSummary">
-           <p>요약: {{ post.summary }}</p>          
-           {% endfor %}
+           <p>{{ post.summary }} ...</p>          
         </div>
      </div>
+     {% endfor %}
   </div>
-</div>    
+</div> 
 {% endblock %}
 
+{% block script %}
+<script>
+   const results = document.querySelector(".result")
+   const length = "{{length}}"
+   zeroResult = function(){
+         if(length=="0"){ 
+     results.innerHTML = "<div class='noResultBox' id='newPost'><p class='resultTitle'>검색 결과</p>{% if request.user.is_authenticated %}<div class='newPost'><a href=\"{% url 'posts:write' %}\">[ 새 문서 만들기 ]</a></div>{%endif%}</div><div class='resultBox'><div class='boxContainer2'><div class='noPost'>⚠︎ 검색 결과가 없습니다.</div></div></div>"};
+     console.log("완료");
+   };
+   window.onload = zeroResult;
 
+</script>      
+{% endblock %}

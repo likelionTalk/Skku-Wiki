@@ -1,84 +1,95 @@
-      .resultTitle {
-    font-weight: bold;
-    font-size: 30px;
-    padding: 30px 30px 30px 0px;
+.resultTitle {
+   font-weight: bold;
+   font-size: 30px;
+   padding: 30px 30px 30px 0px;
+  }
+
+  .result {
+     padding: 50px 100px;
+  }
+
+  .keyword, .length {
+     font-weight: bold;
+
+  }
+
+  .resultSub {
+     display: flex;
+  }
+
+  .resultSub1 {
+     padding-right: 10px;
+     font-size: 21px;
+  }
+
+  .resultSub2 {
+     font-size: 13px;
+     padding-top: 12px;
+  }
+
+  .boxContainer {
+
+     border-top: 1px solid rgb(0, 0, 0);
+     border-bottom: 1px solid rgb(0, 0, 0);
+     padding: 20px 10px;
+     margin: 30px 0px 30px 0px;
+  }
+  .boxContainer2 {
+
+   border-top: 1px solid rgb(0, 0, 0);
+   padding: 20px 10px;
+   margin: 30px 0px 30px 0px;
    }
 
-   .result {
-      padding: 50px 100px;
-   }
-
-   .keyword, .length {
-      font-weight: bold;
-
-   }
-
-   .resultSub {
-      display: flex;
-   }
-
-   .resultSub1 {
-      padding-right: 10px;
-      font-size: 21px;
-   }
-
-   .resultSub2 {
-      font-size: 13px;
-      padding-top: 12px;
-   }
-
-   .boxContainer {
-
-      border-top: 1px solid rgb(0, 0, 0);
-      border-bottom: 1px solid rgb(0, 0, 0);
-      padding: 20px 10px;
-      margin: 30px 0px 30px 0px;
-   }
-   .boxContainer2 {
-
-    border-top: 1px solid rgb(0, 0, 0);
-    padding: 20px 10px;
-    margin: 30px 0px 30px 0px;
-    }
-
-   .resultName, .noPost {
-      font-size: 25px;
-      font-weight: bolder;
-      padding-bottom: 15px;
-   }
-
-   .resultName img {
-      width: 28px;
-      height: 28px;
-      margin: 0px 8px 8px 0px;
-   }
-
-   .resultName a {
-      text-decoration:none;
-      color: inherit; 
-      
-   }
-
-   .resultName a:hover {
-      color: rgb(99, 99, 99);
-      transition: 0.3s;
-   }
-
-   .resultSummary {
-      padding: 5px 5px 10px 0px;
-      font-weight: lighter;
+  .resultName, .noPost {
+     font-size: 25px;
+     font-weight: bolder;
+     padding-bottom: 15px;
+  }
 
 
-   }
 
-   .noResultBox {
-    display: flex;
-    justify-content: space-between;
-   }
+  .resultName img {
+     width: 28px;
+     height: 28px;
+     margin: 0px 8px 8px 0px;
+  }
 
-   .newPost {
-    height: 30px;
-    padding-top: 70px;
-    color: #9AC353;
-   }
+  .resultName a {
+     text-decoration:none;
+     color: inherit; 
+     
+  }
 
+  .resultName a:hover {
+     color: rgb(99, 99, 99);
+     transition: 0.3s;
+  }
+
+  .resultSummary {
+     padding: 5px 5px 10px 0px;
+     font-weight: lighter;
+
+
+  }
+
+  .noResultBox {
+   display: flex;
+   justify-content: space-between;
+  }
+
+  .newPost {
+   height: 30px;
+   padding-top: 70px;
+   color: #9AC353;
+  }
+
+  .newPost a {
+     text-decoration:none;
+     color: inherit; 
+  }
+
+  .newPost a:hover {
+   text-shadow: 1px 1px 1px rgb(229, 229, 229);
+   color: #9AC353;
+  }
