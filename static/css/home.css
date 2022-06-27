@@ -42,3 +42,69 @@
     top:390px;
     width:585px;
 }
+
+.allDiv{
+    position: relative;
+    padding: 10px 10px;
+}
+.navDiv{   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;  
+}
+
+.slideDiv{
+    position: absolute;
+    left: -300px;
+    width: 300px;
+    height:100%;
+    background: #d7ec14;
+}
+
+.imgDiv{
+    display:flex;
+    justify-content: center;
+}
+
+.userDiv{
+}
+
+.userBtn{
+    cursor: pointer;
+    margin-right: 0px;
+}
+
+.userBtn:hover{
+    background-color: gray;
+}
+
+.dropdownDiv{
+  width: 150px;
+  height: 80px;
+  float: right;
+  margin-top: 3px;
+  display: none;
+}
+
+.dropdownDiv > ul > li {
+    list-style: none;
+    display: flex;
+    justify-items: column;
+
+}
+.dropdownDiv > ul > li > a{
+    text-decoration: none;
+    background-color: gray;
+    color: white;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    padding: 3px 3px;
+}
+
+.dropdownDiv > ul > li > a:hover{
+    background-color: #ececec;
+}
+
+
