@@ -1,0 +1,16 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/post-report.css' %}">
+{% endblock %}
+
+{% block content_side %}
+<form action="" method="post">
+    {% csrf_token %}
+    신고<br> 글 title : {{ post.title }} <br>
+    <textarea name="report_body"></textarea><br>
+    <input type="submit" value="신고"><br>
+</form>
+
+{% endblock %}

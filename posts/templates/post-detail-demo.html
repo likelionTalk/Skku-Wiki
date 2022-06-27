@@ -1,6 +1,13 @@
-{% extends 'fragment-post.html' %}
-{% block content %}
+{% extends 'navbar.html' %}
+{% load static %}
 
+{% block content %}
+  <!-- css 이름 변경-->
+  <link rel="stylesheet" href="{% static 'css/report.css' %}"> 
+{% endblock %}
+
+
+{% block content_side %}
 <h1>상세 페이지</h1>
 <h1>글쓴이: {{ postDetail.user_id }} </h1>
 <p>title: {{ postDetail.title }}</p>

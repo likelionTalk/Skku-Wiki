@@ -1,6 +1,11 @@
-{% extends 'fragment-account.html' %}
-{% block content %}
+{% extends 'navbar.html' %}
+{% load static %}
 
+{% block content %}
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
+{% block content_side %}
 <h1>계정만들기</h1>
 <div class="signupBox">
     <form action="{% url 'signup' %}" method="POST">

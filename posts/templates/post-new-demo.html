@@ -1,6 +1,13 @@
-{% extends 'fragment-post.html' %}
-{% block content %}
+{% extends 'navbar.html' %}
+{% load static %}
 
+{% block content %}
+    <!-- css 이름 변경-->
+    <link rel="stylesheet" href="{% static 'css/report.css' %}"> 
+{% endblock %}
+
+
+{% block content_side %}
 <h1>글 작성하기</h1>
 
 <!-- 글 작성 폼 -->
