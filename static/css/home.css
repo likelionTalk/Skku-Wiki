@@ -12,6 +12,7 @@ a{
 
 .nav-bar{
     position: sticky;
+    margin-top: 15px;
     width: 100%;
     height: 10%;
     display: flex;
@@ -39,7 +40,7 @@ a{
     border: 0px;
     width: 30px;
     height: 30px;
-
+    margin-top:8px
 }
 
 .icon-list:hover {
@@ -90,7 +91,7 @@ main {
 .home-main {
     display: flex;
     position: relative;
-    top: -20px;
+    top: -35px;
     margin:auto;
     align-items: center;
     justify-content: center;

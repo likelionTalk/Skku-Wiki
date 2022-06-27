@@ -43,8 +43,7 @@
         <div class="main-logo">
             <img src="{% static 'img/home-logo.png' %}" alt="SkkuWiki">
         </div>
-        <form action="{% url 'posts:postList' %}" method="post">
-            {% csrf_token %}
+        <form action="{% url 'posts:postList' %}" method="get">
             <div class="search-bar">
                 <input type="text" name="kw" id="kw" placeholder="검색어를 입력해주세요">
                 <button class="search-button" type="submit"></button>
