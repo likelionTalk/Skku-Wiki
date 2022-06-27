@@ -1,12 +1,50 @@
-.container{
-    position:absolute;
-    left: 500px;
-    top:5px;
-    width:585px;
+.top-center-nav-bar {
+    width: 100%;
+    min-width: 856px;
+    max-width: 856px;
 }
 
-.logo{
-    position:absolute;
-    left:400px;
+.top-center-nav-bar > form {
+    display: inline-block;
+    width: 100%;
+    max-width: 700px;
+}
+
+.top-search-bar {
+    display: inline-block;
+    position: relative;
+    background-color: #D9D9D9;
+    width: 100%;
+    min-width: 200px;
+    max-width: 700px;
+    height: 40px;
+    border-radius: 50px;
+    margin-top:6px;
+}
+
+.top-search-button {
+    display: block;
+    position: absolute;
     top:10px;
+    right: 20px;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background: url("../img/icon-search.png") no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+}
+
+#top-kw {
+    background: none;
+    border: 0;
+    outline: 0;
+    height: 30px;
+    margin: 6px 0 4px 0;
+    width: 80%;
+    float: left;
+    position: relative;
+    left:30px;
 }
