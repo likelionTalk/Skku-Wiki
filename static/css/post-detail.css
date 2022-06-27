@@ -1,0 +1,105 @@
+.detailBox {
+    padding: 50px 100px;
+}
+
+.detailBoxSub1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detailContainer1 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.detailContainer2 {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.detailContainer {
+    padding-top: 20px;
+}
+
+.detailTitle {
+    font-weight: bold;
+    font-size: 35px;
+    padding: 30px 30px 30px 0px;
+}
+
+i {
+    margin: 5px 5px 12px 5px;
+}
+
+.likeBtn a {
+    font-weight: bolder;
+    margin-right: 20px;
+    text-decoration:none;
+    color: inherit;
+}
+
+
+
+.reportBtn img {
+    height: 20px;
+    width: 20px;
+    margin: 0px 5px 3px 0px;
+
+}
+
+.reportBtn a {
+    color: #C22D2E;
+    font-weight: bolder;
+    text-decoration:none;
+}
+
+.deleteBtn a {
+    color: #9AC353;
+    text-decoration:none;
+ }
+
+.editBtn a {
+    color: #9AC353;
+    text-decoration:none;
+    margin-right: 50px;
+ }
+
+
+ .likeBtn a:hover{
+    color: black;
+}
+
+.reportBtn a:hover{
+    color: #C22D2E;
+}
+
+.editBtn a:hover, .deleteBtn a:hover{
+    color: #9AC353;
+}
+
+.reportBtn:hover, .likeBtn:hover, .editBtn:hover, .deleteBtn:hover {
+    text-shadow: 1px 1px 1px rgb(229, 229, 229);
+ }
+
+ /* body css */
+
+ .detailCategory {
+    font-size: 23px;
+    font-weight: bolder;
+    padding: 10px 0px 10px 0px;
+    border-bottom: 1px solid rgb(152, 152, 152);
+ }
+
+.detailBody {
+    margin: 15px 0px 15px 0px;
+}
+
+.detailMain {
+    font-weight: 400;
+    padding: 25px 0px 25px 0px;
+}
+
+.fileImg{
+    width: 50px;
+    height: 50px;
+}
