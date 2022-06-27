@@ -8,7 +8,6 @@ class Post(models.Model):
     body = models.TextField()
     summary = models.CharField(max_length=200, blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    like = models.IntegerField(default=0)
 
 
 class Report(models.Model):
@@ -16,3 +15,9 @@ class Report(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     post_id = models.ForeignKey("Post", on_delete=models.CASCADE, db_column='post_id')
     user_id = models.ForeignKey("account.User", on_delete=models.CASCADE, db_column='user_id')
+
+
+class Like(models.Model):
+    date = models.DateTimeField(auto_now_add=True)
+    post_id = models.ForeignKey('Post', on_delete=models.CASCADE, db_column='post_id')
+    user_id = models.ForeignKey("account.User", on_delete=models.CASCADE, db_column="user_id")

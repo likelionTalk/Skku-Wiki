@@ -1,9 +1,7 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import Post, Report
-from django.shortcuts import get_object_or_404, render, redirect
+from django.core.exceptions import ObjectDoesNotExist
 
-from .models import Post, Report
-from account.models import User
+from .models import Post, Report, Like
 
 
 def postList(request):
@@ -23,7 +21,8 @@ def postList(request):
 
 def detail(request, postId):
     postDetail = get_object_or_404(Post, pk=postId)
-    context = {'postDetail': postDetail}
+    likeNum = Like.objects.filter(post_id=postDetail.id).count()
+    context = {'postDetail': postDetail, "likeNum": likeNum}
     return render(request, 'post-detail-demo.html', context)
 
 
@@ -67,4 +66,14 @@ def delete(request, postId):
 
 
 def like(request, postId):
-    return None
+    #로그인 안된 사용자는 이용 불가능 기능
+    if request.user.is_authenticated:
+        postDetail = get_object_or_404(Post, id=postId)
+        checkPastLike = Like.objects.filter(post_id=postDetail, user_id=request.user)
+        #좋아요
+        if len(checkPastLike) == 0:
+            Like.objects.create(user_id=request.user, post_id=postDetail)
+        #좋아요 취소
+        else:
+            checkPastLike.delete()
+    return redirect("/posts/" + str(postId))
