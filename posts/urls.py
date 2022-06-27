@@ -10,4 +10,5 @@ urlpatterns = [
     path('write/', posts_views.write, name='write'), #posts/write: 글 작성 
     path('<int:postId>/edit', posts_views.edit, name='edit'), #posts/edit: 글 수정 
     path('<int:postId>/delete', posts_views.delete, name='delete'), #posts/delete: 글 삭제 
+    path('<int:postId>/like', posts_views.like, name='like'), #posts/like: 글 좋아요
 ]

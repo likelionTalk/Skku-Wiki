@@ -63,3 +63,7 @@ def delete(request, postId):
     #     return redirect("/posts/" + str(deletePost.id))    
     deletePost.delete()
     return redirect("/")
+
+
+def like(request, postId):
+    return None
