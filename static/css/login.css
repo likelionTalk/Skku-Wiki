@@ -50,7 +50,10 @@ h1{
     height:40px;
     color:black;
     font-size:16px;
+}
 
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px lightgray inset;
 }
 
 .loginbox input[type="submit"]{

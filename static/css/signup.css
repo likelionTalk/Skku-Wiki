@@ -51,7 +51,10 @@ h1{
     color:black;
     font-size: 18px;
     border-radius:20px;
+}
 
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px lightgray inset;
 }
 
 .signupBox input[type="submit"]:hover{

@@ -11,6 +11,7 @@ a{
 /*==============Header=============*/
 .slideDiv{
     position: absolute;
+    top: 0px;
     left: -300px;
     width: 300px;
     height:100%;
@@ -85,9 +86,11 @@ a{
 details {
     color: rgb(0, 0, 0);
     font-size: 20px;
-    padding: 20px;
+    margin: 20px;
+    padding-bottom: 10px;
     display: flex;
     flex-direction: column;
+    border-bottom: 1px solid #b4b4b4;
 }
 
 /* mainMenu */
@@ -100,6 +103,7 @@ details > summary {
 
 details > summary:hover{
     background-color: #DAD9D7;
+    cursor: pointer;
 }
 
 .nav-bar{
@@ -130,8 +134,8 @@ details > summary:hover{
     background: url("../img/menu.png") no-repeat center;
     background-size: contain;
     border: 0px;
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
     margin-top:8px
 }
 
@@ -199,6 +203,11 @@ details > summary:hover{
     border-radius: 50px;
     margin-top:6px;
 }
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #D9D9D9 inset;
+}
+
 
 .top-search-button {
     display: block;

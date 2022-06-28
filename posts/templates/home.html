@@ -7,7 +7,7 @@
     <title>Skku Wiki</title>
 </head>
 
-<body style="margin: 30px">
+<body style="margin: 30px 100px">
 <div class="slideDiv slideClose">
     <button class="icon-slideClose"></button>
     <div class="menuListDiv">
@@ -27,7 +27,7 @@
 <header>
     <div class="nav-bar">
         <button class="icon-list"></button>
-        <a href="" class="icon-home-logo">
+        <a href="{% url 'home' %}" class="icon-home-logo">
         <img src="{% static 'img/skkuwiki.png'%}" alt="SkkuWiki" width="150"/>
         </a>
         <button class="icon-human"></button>
