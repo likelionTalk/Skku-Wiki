@@ -15,7 +15,7 @@ def postList(request):
         for post in postList:
             post.summary = post.body[:len(post.body)] if len(post.body) < 200 else post.body[:200]
         context = {'kw': kw, "length": len(postList), 'postList': postList}
-        return render(request, 'search-result-demo.html', context)
+        return render(request, 'search-result.html', context)
 
 
 def detail(request, postId):
