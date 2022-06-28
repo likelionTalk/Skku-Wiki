@@ -14,17 +14,17 @@
             <div class="selectedPost">선택한 글: "{{ post.title }}"</div>
         </div>
         <textarea name="report_body" class="reportBody" placeholder="신고 사유를 입력해주세요." id="reportBody"></textarea><br>
-        <input type="submit" value="제출하기" class="submitBtn" id="submitBtn"><br>
+        <input type="submit" value="제출하기" class="submitBtn"><br>
     </div>
 </form>
 {% endblock %}
 
-{% block script%}
-<script type='text/jvascript'>
-    document.getElementById("reportBody").style.fontSize = '17px';
-    document.getElementById("submitBtn").addEventListener("click", function(){
+{% block script %}
+<script>
+    document.querySelector(".submitBtn").addEventListener("click", function(event){
+        console.log("Zz");
         alert('제출이 완료되었습니다.');
         history.back;
-    })
+    });
 </script>
 {% endblock %}

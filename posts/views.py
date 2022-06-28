@@ -37,7 +37,7 @@ def report(request, postId):
 
 def write(request):
     if request.method == "GET":
-        return render(request, 'post-new-demo.html')
+        return render(request, 'post-new.html')
     elif request.method == "POST":
         newPost = Post.objects.create(user_id=request.user, title=request.POST['title'], body=request.POST['body'])
         return redirect("/posts/" + str(newPost.id))
@@ -47,7 +47,7 @@ def edit(request, postId):
     if request.method == "GET":
         postDetail = get_object_or_404(Post, pk=postId)
         context = {'postDetail': postDetail}
-        return render(request, 'post-edit-demo.html', context)
+        return render(request, 'post-edit.html', context)
     elif request.method == "POST":
         Post.objects.filter(id=postId).update(title=request.POST['title'])
         Post.objects.filter(id=postId).update(body=request.POST['body'])

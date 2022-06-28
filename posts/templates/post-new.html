@@ -1,52 +1,35 @@
 {% extends 'navbar.html' %}
 {% load static %}
 
-    <!-- css 이름 변경-->
-    {% block content %}
-    <link rel="stylesheet" href="{% static 'css/post-edit.css' %}">
-    {% endblock %}
+<!-- css 이름 변경-->
+{% block content %}
+ <link rel="stylesheet" href="{% static 'css/post-new.css' %}">
+{% endblock %}
 
-    {% block content_side %}
-    <!-- css 이름 변경-->
-
-
-
-<!-- 글 작성 폼 -->
-<form method="POST" action="{% url 'posts:write' %}" class="" role="write">
-    {% csrf_token %}  
-    <div class="editBox">
-        <div class="editContainer">  
-            <div class="editTitle">새 글 작성하기</div>
-        </div>
-    <input name="title" class="editTitle" type="text" placeholder="write the title">
-    {{ postDetail.title }}
-
-
-        <textarea name="body" class="editBody" placeholder="write the body">
-            {{ postDetail.body }} 
-            </textarea><br>
-        <input type="submit" value="작성" class="submitBtn" id="submitBtn"><br>
+{% block content_side %}
+<div class="newPostBox">
+    <div class="newPostContainer">
+        <div class="subject">새 글 작성하기</div>
     </div>
-</form>
+
+    <form method="POST" action="{% url 'posts:write' %}" class="" role="write">
+        {% csrf_token %}  
+        <input name="title" class="title" placeholder="제목을 입력해주세요.">       
+        <textarea name="body" class="content" placeholder="내용을 입력해주세요."></textarea>
+        <div class="submitDiv">
+            <input type="submit" value="작성하기" class="submitBtn">
+        </div>
+    </form>
+</div>
 {% endblock %}
 
 
 {% block script%}
-<script type='text/jvascript'>
-    document.getElementById("editBody").style.fontSize = '17px';
-    document.getElementById("submitBtn").addEventListener("click", function(){
-        alert('수정이 완료되었습니다.');
+<script>
+    document.querySelector(".submitBtn").addEventListener("click", function(){
+        alert('성공적으로 작성되었습니다!');
         history.back;
-    })
+    });
 </script>
-{% endblock %}
 
-{% block script%}
-<script type='text/jvascript'>
-    document.getElementById("editBody").style.fontSize = '17px';
-    document.getElementById("submitBtn").addEventListener("click", function(){
-        alert('수정이 완료되었습니다.');
-        history.back;
-    })
-</script>
 {% endblock %}

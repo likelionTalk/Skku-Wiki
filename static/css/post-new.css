@@ -1,8 +1,8 @@
-.editBox {
+.newPostBox {
     padding: 50px 100px;
 }
 
-.editContainer {
+.newPostContainer {
     display: flex;
     margin-bottom:30px ;
 }
@@ -42,6 +42,7 @@
     width: 100px;
     margin-left: auto;
 }
+
 .submitBtn {
     height: 30px;
     width: 100px;
