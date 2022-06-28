@@ -91,8 +91,7 @@ main {
 .home-main {
     display: flex;
     position: relative;
-    top: -35px;
-    margin:auto;
+    top: 205px;
     align-items: center;
     justify-content: center;
     flex-direction: column;

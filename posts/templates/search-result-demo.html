@@ -1,50 +1,51 @@
 {% extends 'navbar.html' %}
 {% load static %}
 
+<!-- 추가 css -->
 {% block content %}
-  <link rel="stylesheet" href="{% static 'css/post-detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search-result.css' %}">
 {% endblock %}
 
+<!-- 내용물 -->
 {% block content_side %}
-<!-- 이는 로그인한 회원들에게만 보이면 좋다-->
-<a href="{% url 'posts:write' %}">글 새로 작성</a><br/> 
-
-<div class="result">
-   <div class="noResultBox">
-      <p class="resultTitle">검색 결과</p>
-      {% if request.user.is_authenticated %}
-      <div class="newPost" id="newPost"><a href="{% url 'posts:write' %}">[ 새 문서 만들기 ]</a></div>
-      {%endif%}
-   </div>
-  <div class="resultSub">
-     <div class="resultSub1"><span class="keyword">"{{ kw }}"</span></div>
-     <div class="resultSub2">총 <span class="length">{{length}}</span>건의 검색 결과</p></div>
-  </div>
-  <div class="resultBox">
-     {% for post in postList %}
-     <div class="boxContainer">
-        <div class="resultName" title="이동하기">
-         <a href={% url 'posts:detail' post.id %}><img src={% static 'img/file.png' %} class="fileImg">{{ post.title }}</a><br/>
+    <div class="result">
+        <div class="noResultBox">
+            <div class="float-wrapper">
+                <h2 class="resultTitle">검색 결과</h2>
+                {% if request.user.is_authenticated %}
+                    <div class="newPost" id="newPost"><a href="{% url 'posts:write' %}">[ 새 문서 만들기 ]</a></div>
+                {% endif %}
+            </div>
         </div>
-        <div class="resultSummary">
-           <p>{{ post.summary }} ...</p>          
+
+
+
+        <div class="resultSub">
+            <div class="resultSub1"><span class="keyword">"{{ kw }}"</span></div>
+            <div class="resultSub2">총 <span class="length">{{ length }}</span>건의 검색 결과</p></div>
         </div>
-     </div>
-     {% endfor %}
-  </div>
-</div> 
-{% endblock %}
 
-{% block script %}
-<script>
-   const results = document.querySelector(".result")
-   const length = "{{length}}"
-   zeroResult = function(){
-         if(length=="0"){ 
-     results.innerHTML = "<div class='noResultBox' id='newPost'><p class='resultTitle'>검색 결과</p>{% if request.user.is_authenticated %}<div class='newPost'><a href=\"{% url 'posts:write' %}\">[ 새 문서 만들기 ]</a></div>{%endif%}</div><div class='resultBox'><div class='boxContainer2'><div class='noPost'>⚠︎ 검색 결과가 없습니다.</div></div></div>"};
-     console.log("완료");
-   };
-   window.onload = zeroResult;
+        <div class="resultBox">
+{#            검색 결과 없음#}
+            {% if length == 0 %}
+                <div class='boxContainer2'>
+                    <div class='noPost'>검색 결과가 없습니다.</div>
+                </div>
+            {% endif %}
+{#            결과 반복문#}
+            {% for post in postList %}
+                <div class="boxContainer">
+                    <div class="resultName" title="이동하기">
+                        <a href="{% url 'posts:detail' post.id %}">
+                            <span class="resultName-text">{{ post.title }}</span>
+                        </a>
+                    </div>
+                    <div class="resultSummary">
+                        <p>{{ post.summary }} ...</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
 
-</script>      
+    </div>
 {% endblock %}
