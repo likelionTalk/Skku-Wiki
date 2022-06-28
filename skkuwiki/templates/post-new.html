@@ -1,0 +1,52 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+    <!-- css 이름 변경-->
+    {% block content %}
+    <link rel="stylesheet" href="{% static 'css/post-edit.css' %}">
+    {% endblock %}
+
+    {% block content_side %}
+    <!-- css 이름 변경-->
+
+
+
+<!-- 글 작성 폼 -->
+<form method="POST" action="{% url 'posts:write' %}" class="" role="write">
+    {% csrf_token %}  
+    <div class="editBox">
+        <div class="editContainer">  
+            <div class="editTitle">새 글 작성하기</div>
+        </div>
+    <input name="title" class="editTitle" type="text" placeholder="write the title">
+    {{ postDetail.title }}
+
+
+        <textarea name="body" class="editBody" placeholder="write the body">
+            {{ postDetail.body }} 
+            </textarea><br>
+        <input type="submit" value="작성" class="submitBtn" id="submitBtn"><br>
+    </div>
+</form>
+{% endblock %}
+
+
+{% block script%}
+<script type='text/jvascript'>
+    document.getElementById("editBody").style.fontSize = '17px';
+    document.getElementById("submitBtn").addEventListener("click", function(){
+        alert('수정이 완료되었습니다.');
+        history.back;
+    })
+</script>
+{% endblock %}
+
+{% block script%}
+<script type='text/jvascript'>
+    document.getElementById("editBody").style.fontSize = '17px';
+    document.getElementById("submitBtn").addEventListener("click", function(){
+        alert('수정이 완료되었습니다.');
+        history.back;
+    })
+</script>
+{% endblock %}
