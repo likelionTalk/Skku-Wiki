@@ -21,7 +21,8 @@ def postList(request):
 def detail(request, postId):
     postDetail = get_object_or_404(Post, pk=postId)
     likeNum = Like.objects.filter(post_id=postDetail.id).count()
-    context = {'postDetail': postDetail, "likeNum": likeNum}
+    lencheckPastLike = Like.objects.filter(post_id=postDetail, user_id=request.user).count()
+    context = {'postDetail': postDetail, "likeNum": likeNum, "lencheckPastLike": lencheckPastLike}
     return render(request, 'post-detail-demo.html', context)
 
 

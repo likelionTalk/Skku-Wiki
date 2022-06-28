@@ -3,34 +3,79 @@
 
 {% block content %}
     <!-- css 이름 변경-->
+    <link rel="stylesheet" href="{% static 'css/post-detail.css' %}">
     <link rel="stylesheet" href="{% static 'css/report.css' %}">
+    
 {% endblock %}
 
 
 {% block content_side %}
-    <h1>상세 페이지</h1>
-    <h1>글쓴이: {{ postDetail.user_id }} </h1>
-    <p>title: {{ postDetail.title }}</p>
-    <p>내용: <br/> {{ postDetail.body }}</p>
-
     <!-- 삭제, 수정은 글 작성자에게만 보여야 한다-->
     <!-- 신고, 좋아요는 로그인 한 회원에게만 보여야 한다-->
-    {% if user.is_authenticated %}
-        {% if user == postDetail.user_id %}
-            <a href="{% url 'posts:edit' postDetail.id %}">수정</a><br/>
-            <!-- 삭제를 실행할 URL: data-uri, jquery 사용-->
-            <a href="javascript:void(0)" class="delete" data-uri="{% url 'posts:delete' postDetail.id %}">삭제</a><br/>
-            <p>좋아요 {{ likeNum }}개</p>
-        {% else %}
-            <a href="{% url 'posts:report' postDetail.id %}">신고</a>
-            <form action="{% url 'posts:like' postDetail.id %}">
-                {% csrf_token %}
-                <input type="submit" , value="좋아요 {{ likeNum }}개">
-            </form>
-        {% endif %}
-    {% else %}
-        <p>좋아요 {{ likeNum }}개</p>
-    {% endif %}
+    <div class="detailBox">
+        <div class="detailBoxSub1">
+            <div class="detailTitle">
+                {{ postDetail.title }}
+            </div>
+            <div class="detailContainer">
+                <div class="detailContainer1">
+                    {% if request.user.is_authenticated %}
+                    <div class="likeBtn">
+                        <a class="likeCount">
+                            <form action="{% url 'posts:like' postDetail.id %}">
+                                {% csrf_token %}
+                                {%if lencheckPastLike == 0%}
+                                <img src="{% static 'img/thumb.png'%}" width="22">
+                                {%else%}
+                                <img src="{% static 'img/thumb-fill.png'%}" width="22">
+                                {%endif%}
+                                <input type="submit" , value="좋아요 {{ likeNum }}개" title="좋아요 누르기">
+                            </form>
+                        </a>
+
+                    </div>
+                    <div class="reportBtn">
+                        <a href="{% url 'posts:report' postDetail.id %}"><img src="{% static 'img/report.png'%}" width="20">신고</a>
+                    </div>
+                </div>
+                <div class="detailContainer2">
+                        <div class="editBtn">
+                            <a href="{% url 'posts:edit' postDetail.id %}">[편집]</a><br/>
+                        </div> 
+                    <!-- 삭제를 실행할 URL: data-uri, jquery 사용-->
+                    <div class="deleteBtn">
+                        <a href="javascript:void(0)" class="delete" data-uri="{% url 'posts:delete' postDetail.id %}">[삭제]</a><br/> 
+                    </div> 
+                    {%else%}
+                    <p>좋아요 {{ likeNum }}개</p>
+                    {% endif %}
+                </div>
+
+
+            </div>
+        </div>
+        <div class="detailBoxSub2">
+    
+            <details class="detailBody" open>
+                <summary class="detailCategory" id="categoryName">카테고리 예시1</summary>
+                <p class="detailMain">{{ postDetail.body }}</p>
+            </details>
+    
+            <details class="detailBody" open>
+                <summary class="detailCategory">카테고리 예시2</summary>
+                <p class="detailMain">{{ postDetail.body }}</p>
+            </details>
+    
+            <details class="detailBody" open>
+                <summary class="detailCategory">카테고리 예시2</summary>
+                <p class="detailMain">{{ postDetail.body }}</p>
+            </details>
+    
+    
+            </div>
+        </div>
+    </div>
+
 
 {% endblock %}
 
@@ -48,3 +93,4 @@
     </script>
 
 {% endblock %}
+
