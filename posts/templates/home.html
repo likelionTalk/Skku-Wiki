@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" style="height: 100%; width: 100%">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>Skku Wiki</title>
+</head>
+
+<body style="margin: 30px">
+<div class="slideDiv slideClose">
+    <button class="icon-slideClose"></button>
+    <div class="menuListDiv">
+        <!-- home.html과 navbar.html render시 저장된 모든 post 모델들을 가져와서 for문을 돌려야한다-->
+        <details>
+            <summary> 📢 학사공지</summary>
+            <a href="#" class="subMenu">한국어학과</a>
+            <a href="#" class="subMenu">일본어학과</a>
+        </details>
+        <details>
+            <summary> 📄 게시판</summary>
+            <a href="#" class="subMenu">교환학생</a>
+        </details>
+    </div>
+</div>
+
+<header>
+    <div class="nav-bar">
+        <button class="icon-list"></button>
+        <a href="" class="icon-home-logo">
+        <img src="{% static 'img/skkuwiki.png'%}" alt="SkkuWiki" width="150"/>
+        </a>
+        <button class="icon-human"></button>
+        <div class="human-info hidden-nav-bar">
+            <div class="drop-wrapper" style="display: none">
+                <div class="human-info-name">
+                {% if user.is_authenticated %}
+                <p>{{ user.username }}님</p>
+                {% else %}
+                <p>로그인해주세요</p>
+                {% endif %}
+                </div>
+                <div class="human-info-menu">
+                    <a href="" style="display: block; padding: 2px 0;">내 티어/활동</a>
+                    <a href="" style="display: block; padding: 2px 0;">내 문서 목록</a>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" style="display: block; padding: 2px 0;">로그아웃</a>
+                    {% else %}
+                    <a href="{% url 'login' %}" style="display: block; padding: 2px 0;">로그인</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="home-main">
+        <div class="main-logo">
+            <img src="{% static 'img/home-logo.png' %}" alt="SkkuWiki">
+        </div>
+        <form action="{% url 'posts:postList' %}" method="get">
+            <div class="search-bar">
+                <input type="text" name="kw" id="kw" placeholder="검색어를 입력해주세요">
+                <button class="search-button" type="submit"></button>
+            </div>
+        </form>
+    </div>
+</main>
+
+
+<script src="{% static 'js/home.js' %}">
+
+</script>
+</body>
+</html>
