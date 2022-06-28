@@ -188,8 +188,7 @@ main {
 .home-main {
     display: flex;
     position: relative;
-    top: -20px;
-    margin:auto;
+    top: 205px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
