@@ -57,7 +57,12 @@
 <main>
     <div class="home-main">
         <div class="main-logo">
-            <img src="{% static 'img/home-logo.png' %}" alt="SkkuWiki">
+            <svg class="skkuSvg svgDiv" width=280 height=80 viewBox="0 0 280 80">
+                <text x="0" y="90%" class="text-skku">SKKU</text>
+            </svg>
+            <svg class="wikiSvg svgDiv" width=280 height=80 viewBox="0 0 280 80">
+                <text x="0" y="90%" class="text-wiki">WiKi</text>
+            </svg>
         </div>
         <form action="{% url 'posts:postList' %}" method="get">
             <div class="search-bar">

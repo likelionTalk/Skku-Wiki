@@ -55,3 +55,27 @@ dropIcon.addEventListener('click', function(event){
         }, duration);
     }
 });
+
+let svgDiv = document.querySelector('.svgDiv');
+
+svgDiv.addEventListener('mouseover', function(event){
+    let skkuSvg = document.querySelector('.skkuSvg');
+    let wikiSvg = document.querySelector('.wikiSvg');
+    skkuSvg.animate([
+        {transform: 'translate(0px)'},
+        {transform: 'translate(-40px)'},
+        {transform: 'translate(0px)'},
+    ], {
+        duration: 2000,
+        
+    });
+    wikiSvg.animate([
+        {transform: 'translate(0px)'},
+        {transform: 'translate(40px)'},
+        {transform: 'translate(0px)'},
+    ], {
+        duration: 2000,
+        
+    });
+});
+
