@@ -3,12 +3,108 @@
     margin:0;
 }
 
+body{
+    background-image: url("../img/background.jpg"); 
+    background-size: cover;
+}
 a{
     color: #000000;
     text-decoration: none;
 }
 
 /*==============Header=============*/
+.slideDiv{
+    position: absolute;
+    left: -300px;
+    width: 300px;
+    height:100%;
+    background: #e8e8e8; 
+    z-index: 9999;  
+    border-radius: 10px;
+}
+
+.icon-slideClose{
+    position: relative;
+    background: url("../img/slide-close.png") no-repeat center;
+    background-size: contain;
+    border: 0px;
+    width: 50px;
+    height: 50px;
+    float:right;
+}
+
+.icon-slideClose:hover {
+    cursor: pointer;
+}
+
+.slideOpenMotion{
+    animation-name: slideOpenMotion;
+    animation-duration:0.7s;
+    animation-duration: leaner;
+    animation-direction:alternate;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes slideOpenMotion {
+    100% {
+      left:0px;
+    }
+}
+
+.slideCloseMotion{
+    animation-name: slideCloseMotion;
+    animation-duration:0.7s;
+    animation-duration: leaner;
+    animation-direction:reverse;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes slideCloseMotion {
+    100%{
+        left:0px;
+    }
+    0% {
+      left:-300px;
+    }
+}
+
+
+.menuListDiv{
+    margin-top: 45px;
+}
+
+.subMenu{
+    width: 120px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.subMenu:hover{
+    background-color: #DAD9D7;
+}
+
+/* submenu css */
+details {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* mainMenu */
+details > summary {
+    color: rgb(4, 4, 4);
+    font-size: 24px;
+    font-weight: 800;
+    padding: 5px 0;
+}
+
+details > summary:hover{
+    background-color: #DAD9D7;
+}
 
 .nav-bar{
     position: sticky;
@@ -17,7 +113,7 @@ a{
     height: 10%;
     display: flex;
     justify-content: space-between;
-    z-index: 9999;
+    z-index: 9998;
 }
 
 .icon-human {
@@ -40,7 +136,7 @@ a{
     border: 0px;
     width: 30px;
     height: 30px;
-    margin-top:8px
+    margin-top:8px;
 }
 
 .icon-list:hover {
@@ -56,6 +152,7 @@ a{
     width: 230px;
     height: 160px;
     background-color: #e8e8e8;
+    border-radius: 10px;
     /*box-shadow: 1px 1px 1px 1px gray;*/
     display: none;
     font-size: 16px;
@@ -91,7 +188,7 @@ main {
 .home-main {
     display: flex;
     position: relative;
-    top: -35px;
+    top: -20px;
     margin:auto;
     align-items: center;
     justify-content: center;
