@@ -21,8 +21,11 @@ def postList(request):
 def detail(request, postId):
     postDetail = get_object_or_404(Post, pk=postId)
     likeNum = Like.objects.filter(post_id=postDetail.id).count()
-    lencheckPastLike = Like.objects.filter(post_id=postDetail, user_id=request.user).count()
-    context = {'postDetail': postDetail, "likeNum": likeNum, "lencheckPastLike": lencheckPastLike}
+    lenCheckPastLike = 0
+    if request.user.is_authenticated:
+        lenCheckPastLike = len(Like.objects.filter(post_id=postDetail, user_id=request.user))
+        print('===================' + str(lenCheckPastLike))
+    context = {'postDetail': postDetail, "likeNum": likeNum, "lenCheckPastLike": lenCheckPastLike}
     return render(request, 'post-detail-demo.html', context)
 
 

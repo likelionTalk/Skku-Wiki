@@ -1,24 +1,26 @@
 .detailBox {
     padding: 50px 100px;
+    min-width: 1000px;
 }
 
-.detailBoxSub1 {
+.detailBoxSub-tool-box {
+    margin: 0px 10px;
     display: flex;
     justify-content: space-between;
 }
 
-.detailContainer1 {
+.detailContainer-top {
     display: flex;
     justify-content: flex-end;
 }
 
-.detailContainer2 {
+.detailContainer-bottom {
     display: flex;
     justify-content: flex-end;
 }
 
 .detailContainer {
-    padding-top: 20px;
+    padding-top: 75px;
 }
 
 .detailTitle {
@@ -53,19 +55,11 @@
     text-decoration:none;
 }
 
-.reportBtn {
-    margin-bottom: 10px;
-}
-
-.deleteBtn a {
+.green-text-btn {
     color: #9AC353;
     text-decoration:none;
- }
-
-.editBtn a {
-    color: #9AC353;
-    text-decoration:none;
-    margin-right: 50px;
+    /*margin-right: 35px;*/
+   margin: 0 15px;
  }
 
 
@@ -77,11 +71,11 @@
     color: #C22D2E;
 }
 
-.editBtn a:hover, .deleteBtn a:hover{
+.green-text-btn a:hover, .deleteBtn a:hover{
     color: #9AC353;
 }
 
-.reportBtn:hover, .likeCount input:hover, .editBtn:hover, .deleteBtn:hover {
+.reportBtn:hover, .likeCount input:hover, .green-text-btn:hover, .deleteBtn:hover {
     text-shadow: 1px 1px 1px rgb(229, 229, 229);
  }
 
@@ -91,7 +85,7 @@
     font-size: 23px;
     font-weight: bolder;
     padding: 10px 0px 10px 0px;
-    border-bottom: 1px solid rgb(152, 152, 152);
+    border-bottom: 1px solid #e8e8e8;
  }
 
 .detailBody {

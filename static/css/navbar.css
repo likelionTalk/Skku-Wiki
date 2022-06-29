@@ -83,7 +83,7 @@ a{
 }
 
 /* submenu css */
-details {
+menuListDiv-details {
     color: rgb(0, 0, 0);
     font-size: 15px;
     margin: 20px;
@@ -100,7 +100,7 @@ details {
 }
 
 /* mainMenu */
-details > summary {
+menuListDiv-details > summary {
     color: rgb(4, 4, 4);
     font-size: 20px;
     font-weight: 800;
@@ -113,7 +113,7 @@ details > summary {
     user-select: none;
 }
 
-details > summary:hover{
+menuListDiv-details > summary:hover{
     background-color: #DAD9D7;
     cursor: pointer;
 }
