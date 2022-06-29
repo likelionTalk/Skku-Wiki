@@ -1,24 +1,26 @@
 .detailBox {
     padding: 50px 100px;
+    min-width: 1000px;
 }
 
-.detailBoxSub1 {
+.detailBoxSub-tool-box {
+    margin: 0px 10px;
     display: flex;
     justify-content: space-between;
 }
 
-.detailContainer1 {
+.detailContainer-top {
     display: flex;
     justify-content: flex-end;
 }
 
-.detailContainer2 {
+.detailContainer-bottom {
     display: flex;
     justify-content: flex-end;
 }
 
 .detailContainer {
-    padding-top: 20px;
+    padding-top: 75px;
 }
 
 .detailTitle {
@@ -27,24 +29,24 @@
     padding: 30px 30px 30px 0px;
 }
 
-i {
-    margin: 5px 5px 12px 5px;
-}
 
-.likeBtn a {
+.likeCount input {
     font-weight: bolder;
     margin-right: 20px;
-    text-decoration:none;
-    color: inherit;
+    font-size: 16px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
 }
 
-
+.likeCount img {
+    padding-bottom: 5px;
+    vertical-align: middle;
+}
 
 .reportBtn img {
-    height: 20px;
-    width: 20px;
     margin: 0px 5px 3px 0px;
-
+    vertical-align: middle;
 }
 
 .reportBtn a {
@@ -53,15 +55,11 @@ i {
     text-decoration:none;
 }
 
-.deleteBtn a {
+.green-text-btn {
     color: #9AC353;
     text-decoration:none;
- }
-
-.editBtn a {
-    color: #9AC353;
-    text-decoration:none;
-    margin-right: 50px;
+    /*margin-right: 35px;*/
+   margin: 0 15px;
  }
 
 
@@ -73,11 +71,11 @@ i {
     color: #C22D2E;
 }
 
-.editBtn a:hover, .deleteBtn a:hover{
+.green-text-btn a:hover, .deleteBtn a:hover{
     color: #9AC353;
 }
 
-.reportBtn:hover, .likeBtn:hover, .editBtn:hover, .deleteBtn:hover {
+.reportBtn:hover, .likeCount input:hover, .green-text-btn:hover, .deleteBtn:hover {
     text-shadow: 1px 1px 1px rgb(229, 229, 229);
  }
 
@@ -87,7 +85,7 @@ i {
     font-size: 23px;
     font-weight: bolder;
     padding: 10px 0px 10px 0px;
-    border-bottom: 1px solid rgb(152, 152, 152);
+    border-bottom: 1px solid #e8e8e8;
  }
 
 .detailBody {
@@ -99,7 +97,3 @@ i {
     padding: 25px 0px 25px 0px;
 }
 
-.fileImg{
-    width: 50px;
-    height: 50px;
-}
