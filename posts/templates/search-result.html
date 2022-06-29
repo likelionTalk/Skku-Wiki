@@ -13,7 +13,9 @@
             <div class="float-wrapper">
                 <h2 class="resultTitle">검색 결과</h2>
                 {% if request.user.is_authenticated %}
-                    <div class="newPost" id="newPost"><a href="{% url 'posts:write' %}">[ 새 문서 만들기 ]</a></div>
+                    <div class="newPost" id="newPost"><a href="{% url 'posts:write"' %}">[ 새 문서 만들기 ]</a></div>
+                {% else %}
+                    <div class="newPost" id="newPost"><a href="{% url 'login' %}">[ 새 문서 작성은 로그인해주세요 ]</a></div>
                 {% endif %}
             </div>
         </div>
