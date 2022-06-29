@@ -26,7 +26,7 @@ def detail(request, postId):
         lenCheckPastLike = len(Like.objects.filter(post_id=postDetail, user_id=request.user))
         print('===================' + str(lenCheckPastLike))
     context = {'postDetail': postDetail, "likeNum": likeNum, "lenCheckPastLike": lenCheckPastLike}
-    return render(request, 'post-detail-demo.html', context)
+    return render(request, 'post-detail.html', context)
 
 
 def report(request, postId):
