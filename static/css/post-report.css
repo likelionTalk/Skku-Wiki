@@ -1,6 +1,7 @@
 .reportContainer {
     display: flex;
     margin-bottom:30px ;
+    font-family: 'Noto Sans KR', sans-serif;
   }
   .reportBox {
     display: flex;
@@ -14,6 +15,7 @@
     font-size: 30px;
     opacity: 1;
     text-align: center;
+
   }
 
   .selectedPost {
@@ -32,6 +34,7 @@
     letter-spacing: -1px;
     font-weight: bolder;
     cursor: pointer; 
+    font-family: 'Noto Sans KR', sans-serif;
   }
 
   .submitBtn:hover {
@@ -41,7 +44,7 @@
 
   .reportBody::placeholder {
     font-size: 17px;
-
+    font-family: 'Noto Sans KR', sans-serif;
   }
 
   .reportBody {
@@ -49,7 +52,7 @@
     height: 423px;
     resize: none;
     font-size:17px;
-    font-family: "Malgun Gothic";
+    font-family: 'Noto Sans KR', sans-serif;
     padding: 10px;
     letter-spacing: -2px;
   }

@@ -4,9 +4,20 @@
 }
 
 body{
+    animation: fadein 2s;
+    transition: background-image 2s ease-in-out;
     background-image: url("../img/background.png");
     background-size: cover;
+    animation-direction: normal;
 }
+@keyframes fadein{
+    from { opacity: 0;}
+    to{ opacity: 1;}
+}
+
+
+
+
 a{
     color: #000000;
     text-decoration: none;
@@ -89,20 +100,32 @@ a{
 /* submenu css */
 details {
     color: rgb(0, 0, 0);
-    font-size: 20px;
+    font-size: 15px;
     margin: 20px;
     padding-bottom: 10px;
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid #b4b4b4;
+    font-family: 'Noto Sans KR', sans-serif;
+    -ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 /* mainMenu */
 details > summary {
     color: rgb(4, 4, 4);
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 800;
     padding: 5px 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    -ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 details > summary:hover{
@@ -153,13 +176,13 @@ details > summary:hover{
     position: absolute;
     right: 5px;
     top: 65px;
-    width: 230px;
-    height: 160px;
+    width: 250px;
+    height: 180px;
     background-color: #e8e8e8;
     border-radius: 10px;
     box-shadow: -1px -1px 1px 1px gray inset;
     display: none;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .hidden-nav-bar::before {
@@ -178,12 +201,35 @@ details > summary:hover{
 
 .human-info-name {
     padding: 20px 10px;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
+.userName{
+    font-weight: bold;
+    font-size: 20px;
+    -ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
 .human-info-menu{
     padding: 10px;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
+.userMenu{
+    display: block; 
+    padding: 2px 0;
+    -ms-user-select: none; 
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.userMenu:hover{
+    background-color: #DAD9D7;
+}
 /*==============Main=============*/
 main {
     height: 90%;
@@ -291,9 +337,6 @@ main {
 
 
 .search-bar {
-    animation-name: searchBarMotion;
-    animation-duration:0.7s;
-    animation-duration: leaner;
     position: relative;
     margin:40px 0 110px 0;
     background-color: white;
@@ -309,6 +352,13 @@ input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px white inset;
 }
 
+#kw{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#kw::placeholder{
+    font-family: 'Noto Sans KR', sans-serif;
+}
 .search-button {
     display: block;
     position: absolute;

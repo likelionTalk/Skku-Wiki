@@ -10,6 +10,7 @@
     min-width: 500px;
 }
 
+
 .float-wrapper::after{
     content: '';
     display: block;
@@ -23,6 +24,8 @@
     font-size: 40px;
     padding: 30px 30px 30px 0px;
     min-width: 300px;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: -2px;
 }
 
 .newPost {
@@ -40,15 +43,17 @@
 
 .resultSub {
     display: flex;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .resultSub1 {
     padding-right: 10px;
-    font-size: 21px;
+    font-size: 25px;
+    
 }
 
 .resultSub2 {
-    font-size: 13px;
+    font-size: 15px;
     padding-top: 9px;
 }
 
@@ -65,10 +70,21 @@
     margin: 30px 0px 30px 0px;
 }
 
+.resultBox{
+    animation: fadein 2s;
+    animation-direction: normal;
+}
+
+@keyframes fadein{
+    from { opacity: 0;}
+    to{ opacity: 1;}
+}
+
 .resultName, .noPost {
     font-size: 25px;
     font-weight: bolder;
     padding-bottom: 15px;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .resultName-text {
@@ -119,13 +135,14 @@
 .resultSummary {
     padding: 5px 5px 10px 0px;
     font-weight: lighter;
-
+    font-family: 'Noto Sans KR', sans-serif;
 
 }
 
 .newPost a {
     text-decoration: none;
     color: inherit;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .newPost a:hover {
