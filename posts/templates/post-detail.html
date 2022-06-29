@@ -17,7 +17,7 @@
             </div>
             <div class="detailContainer">
                 <div class="detailContainer-top">
-                    {% if request.user.is_authenticated %}
+                    {% if request.user.is_authenticated and request.user != postDetail.user_id %}
                         <div class="likeBtn">
                             <a class="likeCount">
                                 <form action="{% url 'posts:like' postDetail.id %}">
@@ -27,7 +27,7 @@
                                     {% else %}
                                         <img src="{% static 'img/thumb-fill.png' %}" width="22">
                                     {% endif %}
-                                    <input type="submit" , value="좋아요 {{ likeNum }}개" title="좋아요 누르기">
+                                    <input type="submit" value="좋아요 {{ likeNum }}개" title="좋아요 누르기">
                                 </form>
                             </a>
                         </div>
@@ -50,17 +50,17 @@
         <div class="detailBoxSub-content">
 
             <details class="detailBody" open>
-                <summary class="detailCategory" id="categoryName">소제목 1</summary>
+                <summary class="detailCategory" id="categoryName">카테고리 예시1</summary>
                 <p class="detailMain">{{ postDetail.body }}</p>
             </details>
 
             <details class="detailBody" open>
-                <summary class="detailCategory">소제목 2</summary>
+                <summary class="detailCategory">카테고리 예시2</summary>
                 <p class="detailMain">{{ postDetail.body }}</p>
             </details>
 
             <details class="detailBody" open>
-                <summary class="detailCategory">소제목 3</summary>
+                <summary class="detailCategory">카테고리 예시2</summary>
                 <p class="detailMain">{{ postDetail.body }}</p>
             </details>
         </div>
@@ -79,15 +79,13 @@
 {% endblock %}
 
 {% block script %}
-   
     <script type='text/javascript'>
-        const deletePost = document.querySelector(".delete");      
+        const deletePost = document.querySelector(".delete");
         deletePost.addEventListener('click', function () {
             if (confirm("정말로 삭제하시겠습니까?")) {
                 location.href = this.dataset.uri;
             }
         });
-        
     </script>
 
 {% endblock %}
