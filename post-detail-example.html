@@ -1,0 +1,99 @@
+{% extends 'navbar.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- css 이름 변경-->
+    <link rel="stylesheet" href="{% static 'css/post-detail-example.css' %}">
+{% endblock %}
+
+
+{% block content_side %}
+    <!-- 삭제, 수정은 글 작성자에게만 보여야 한다-->
+    <!-- 신고, 좋아요는 로그인 한 회원에게만 보여야 한다-->
+    <div class="detailBox">
+        <div class="detailBoxSub-tool-box">
+            <div class="detailTitle">
+                교환학생
+            </div>
+            <div class="detailContainer">
+                <div class="detailContainer-top">
+                    {% if request.user.is_authenticated and request.user != postDetail.user_id %}
+                        <div class="likeBtn">
+                            <a class="likeCount">
+                                <form action="{% url 'posts:like' postDetail.id %}">
+                                    {% csrf_token %}
+                                    {% if lenCheckPastLike == 0 %}
+                                        <img src="{% static 'img/thumb.png' %}" width="22">
+                                    {% else %}
+                                        <img src="{% static 'img/thumb-fill.png' %}" width="22">
+                                    {% endif %}
+                                    <input type="submit" value="좋아요 {{ likeNum }}개" title="좋아요 누르기">
+                                </form>
+                            </a>
+                        </div>
+                        <div class="reportBtn">
+                            <a href="{% url 'posts:report' postDetail.id %}"><img src="{% static 'img/report.png' %}" width="20">신고</a>
+                        </div>
+                    {% else %}
+                        <div class="likeBtn">
+                            <a class="likeCount">
+                                <img src="{% static 'img/thumb.png' %}" width="22">
+                                <span>좋아요 {{ likeNum }}개</span>
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        {#        카테고리 구현 예시 div#}
+        <div class="detailBoxSub-content">
+
+            <details class="detailBody" open>
+                <summary class="detailCategory" id="categoryName">교환학생 제도란?</summary>
+                <p class="detailMain">본교와 학생 교류 협정을 맺은 외국 협정대학에 한 학기 또는 1년간 파견하여 수학하는 제도입니다. 교환학생은 매 학기 선발되며 정해진 기간 동안 해외 협정대학에서 수업을 수강하고 돌아와 본교에서 학점을 인정 받게 됩니다. 교환학생은 파견되는 해외 대학에는 학비를 지불하지 않고 본교에만 등록금을 납부하며 수업은 모두 협정 대학에서 수강하게 됩니다.</p>
+            </details>
+
+            <details class="detailBody" open>
+                <summary class="detailCategory">해외수학생 제도란?</summary>
+                <p class="detailMain">교환학생 프로그램 외에 학생이 원하는 해외대학에서 한 학기 또는 1년간 수학하는 제도입니다. 해외수학생은 본교 및 파견되는 해외대학에 모두 등록금을 납부하여야 하며, 파견대학에서 취득한 학점은 본교 학점으로 인정받을 수 있습니다. 사전 승인을 받지 않은 경우 학점인정은 절대 불가합니다.</p>
+            </details>
+
+            <details class="detailBody" open>
+                <summary class="detailCategory">2022년 공지사항</summary>
+                <p class="detailMain"><span class="updateDate"> 22.01.10.<span class="newUpdate">update!</span></span>[외국정부 초청] 2022-2023 브루나이 정부초청 장학생 선발 안내<a href="https://www.skku.edu/skku/international/globalComm/international01.do?mode=view&articleNo=94789&article.offset=30&articleLimit=10" class="noticeLink" target="_blank"> !링크</a></p>
+                <p class="detailMain"><span class="updateDate"> 22.01.10.<span class="newUpdate">update!</span></span></span>[교외 장학] 2022-1학기 교환학생 TOEFL 장학생 선발<a href="https://www.skku.edu/skku/international/globalComm/international01.do?mode=view&articleNo=94793&article.offset=30&articleLimit=10" class="noticeLink" target="_blank"> !링크</a></p>
+            </details>
+
+            <details class="detailBody" open>
+                <summary class="detailCategory">2021년 공지사항</summary>
+                <p class="detailMain"><span class="updateDate"> 21.12.16.</span>[교외 장학] 제27기 미래에셋 해외교환 장학생 선발 안내(2022학년도 2학기 파견)<a href="https://www.skku.edu/skku/international/globalComm/international01.do?mode=view&articleNo=94793&article.offset=30&articleLimit=10" class="noticeLink" target="_blank"> !링크</a></p>
+                <p class="detailMain"><span class="updateDate"> 21.12.05.</span>[교외 장학] 2022학년도 2학기 ASEM-DUO 장학금 안내<a href="https://www.skku.edu/skku/international/globalComm/international01.do?mode=view&articleNo=94793&article.offset=30&articleLimit=10" class="noticeLink" target="_blank"> !링크</a></p>
+            </details>
+        </div>
+
+
+        <div class="detailContainer-bottom">
+            {% if user.is_authenticated %}
+                <a class="green-text-btn" href="{% url 'posts:edit' postDetail.id %}">[편집]</a><br/>
+                <!-- 삭제를 실행할 URL: data-uri, jquery 사용-->
+                <a class="green-text-btn delete" href="javascript:void(0)" data-uri="{% url 'posts:delete' postDetail.id %}">[삭제]</a><br/>
+            {% else %}
+                <a class="green-text-btn" href="{% url 'login' %}">[편집/삭제는 로그인해주세요]</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script type='text/javascript'>
+        const deletePost = document.querySelector(".delete");
+        deletePost.addEventListener('click', function () {
+            if (confirm("정말로 삭제하시겠습니까?")) {
+                location.href = this.dataset.uri;
+            }
+        });
+    </script>
+
+{% endblock %}
+
