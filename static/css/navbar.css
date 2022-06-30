@@ -71,11 +71,10 @@ a{
 }
 
 .subMenu{
-    width: 120px;
-    height: 40px;
+    height: 30px;
     margin-top: 10px;
-    margin-left: 20px;
-    text-align: center;
+    padding: 7px 0 0 30px;
+    text-align: left;
 }
 
 .subMenu:hover{
@@ -90,7 +89,6 @@ a{
     padding-bottom: 10px;
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid #b4b4b4;
     font-family: 'Noto Sans KR', sans-serif;
     -ms-user-select: none; 
     -moz-user-select: -moz-none;
